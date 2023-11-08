@@ -1,0 +1,16 @@
+<app-navmenu></app-navmenu>
+
+
+<div class="content" role="main">
+    <h1>Lee tu código QR aquí!</h1>
+    <!-- Highlight Card -->
+        <div class="container" id="container">
+                <qr-scanner
+                    [debug]="false"
+                    [canvasWidth]="1080" 
+                    [canvasHeight]="720" 
+                    [stopAfterScan]="false" 
+                    [updateTime]="4000"> 
+                </qr-scanner>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+
+   <app-navmenu></app-navmenu>
+
+
+   <div class="content" role="main">
+  
+    <!-- Highlight Card -->
+    <div class="card highlight-card card-small">  
+      <div class="container" id="container" *ngIf="!CodeGenerado">
+        <div class="form-container sign-in">
+            <form [formGroup]="formVerificarDui" (ngSubmit)="verificarDui()">
+                <h1>Genera tu código QR aquí!</h1>
+                <span>Por favor, ingrese su número de DUI para verificar su elegibilidad para votar en las próximas elecciones. Su número de DUI es un requisito importante para garantizar que cumpla con los requisitos de votación en su jurisdicción. Asegúrese de ingresar el número de DUI correcto para acceder a la información de votación correspondiente. Si tiene alguna pregunta o necesita asistencia, no dude en ponerse en contacto con nuestras autoridades electorales locales.</span>
+                <input formControlName="dui" type="text" #duiInput class="input" placeholder="00000000-0" (input)="onInputChange($event)">
+                <button [disabled]="!formVerificarDui.valid" type="submit">Generar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right" *ngIf="CodeGenerado">
+                    <h1>Gerson Arlindo Gonzalez</h1>
+                    <p>Apto para votar</p>
+                    <!-- <button class="hidden" id="register">Sign Up</button> -->
+                </div>
+                <div class="toggle-panel toggle-right" *ngIf="!CodeGenerado">
+                    <img src="./../../../../../assets/images/votaciones_verificacion.PNG" width="85%" height="75%">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="CodeGenerado" class="centered-div">
+        <h1>Código QR</h1>
+        <qrcode elementType="canvas" (qrCodeURL)="onCodeChange($event)" [width]="400" qrdata="{{uui}}"
+          [errorCorrectionLevel]="'H'"
+          [imageHeight]="90" [imageWidth]="120">
+        </qrcode>
+        <a [href]="url" download=`qr-votaciones-{{uui}}`>Descargar QR</a>
+        <!-- <a (click)="regresarGenerar()">Regresar</a> -->
+        <button (click)="regresarGenerar()" class="button">
+          <svg class="svg-icon" fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#ff342b" stroke-linecap="round" stroke-width="1.5"><path d="m3.33337 10.8333c0 3.6819 2.98477 6.6667 6.66663 6.6667 3.682 0 6.6667-2.9848 6.6667-6.6667 0-3.68188-2.9847-6.66664-6.6667-6.66664-1.29938 0-2.51191.37174-3.5371 1.01468"></path><path d="m7.69867 1.58163-1.44987 3.28435c-.18587.42104.00478.91303.42582 1.0989l3.28438 1.44986"></path></g></svg>
+          <span class="lable">Regresar</span>
+        </button>
+      </div>
+    <!-- <button (click)="printQRCode()">Print QR code</button> -->
+    </div>  
+  </div>
+  

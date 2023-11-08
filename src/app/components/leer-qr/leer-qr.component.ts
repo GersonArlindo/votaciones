@@ -70,6 +70,7 @@ export class LeerQrComponent implements OnInit, AfterViewInit {
             text: "Usuario Validado exitosamente!",
             icon: "success"
           })
+          localStorage.setItem("miDui", this.miDui)
           setTimeout(() => {
             this.router.navigate(['/votacion']);
           }, 1500);

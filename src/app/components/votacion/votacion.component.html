@@ -1,1 +1,14 @@
 <app-navmenu></app-navmenu>
+
+<div class="container">
+    <div class="cards">
+        <div (click)="seleccionarPartido(partido.id_partido_politico, partido.nombre, partido.candidatos[0].id_candidato)" class="card red" *ngFor="let partido of partidos_politicos" [style.background-image]="'url(https://evotes-app-administracion.s3.us-west-2.amazonaws.com/' + partido.logo + ')'" style="background-size: cover; background-position: center;">
+            <span class="close-icon"  *ngIf="partidosEstado[partido.id_partido_politico]">X</span>
+            <div class="card-footer">
+                <p>{{partido.nombre}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+

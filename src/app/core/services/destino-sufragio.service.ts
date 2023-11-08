@@ -65,4 +65,17 @@ export class DestinoSufragioService {
       catchError((err) => this.HandlerErrorSrv.handlerError(err))
     );
   }
+
+  emitirVoto(data:any, dui: any, candidato_id: any, token: any) : Observable<any | void>{
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.put<any>(`${environment.API_URL}destino-sufragio/emitir-voto-qr/dui/${dui}/${candidato_id}`, data, {headers})
+    .pipe(
+      map((res:any)=> {
+        return res;
+      }),
+      catchError((err) => this.HandlerErrorSrv.handlerError(err))
+    );
+  }
 }

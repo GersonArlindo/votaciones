@@ -1,0 +1,70 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.card {
+    position: relative;
+    /* Otras propiedades de estilo que puedas tener aquí */
+}
+
+.close-icon {
+    position: absolute; /* Posición absoluta dentro de la tarjeta */
+    top: 10px; /* Ajusta la distancia desde la parte superior según tus preferencias */
+    right: 100px; /* Ajusta la distancia desde la derecha según tus preferencias */
+    font-size: 200px; /* Tamaño del ícono */
+    color: rgb(255, 0, 0); /* Color del ícono */
+    cursor: pointer; /* Cambia el cursor al pasar por encima para indicar que es interactivo */
+}
+
+.card-footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para el pie de página */
+    color: white; /* Color del texto en el pie de página */
+    padding: 10px; /* Espaciado interno para el pie de página */
+    position: absolute;
+    bottom: 0; /* Coloca el pie de página en la parte inferior de la tarjeta */
+    width: 100%; /* Ancho completo del pie de página */
+    //text-align: center; /* Centra el texto en el pie de página */
+    height: 40px;
+    /* Otras propiedades de estilo que desees agregar */
+}
+  
+  .cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 250px;
+    width: 350px;
+    border-radius: 10px;
+    color: rgb(1, 1, 1);
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+//   .cards .card p.tip {
+//     font-size: 1em;
+//     font-weight: 700;
+//   }
+  
+//   .cards .card p.second-text {
+//     font-size: .7em;
+//   }
+  
+  .cards .card:hover {
+    transform: scale(1.1, 1.1);
+  }
+  
+  .cards:hover > .card:not(:hover) {
+    filter: blur(3px);
+    transform: scale(0.9, 0.9);
+  }
+
+
+
+
+  

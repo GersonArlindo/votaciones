@@ -18,11 +18,11 @@
 			<form class="login" [formGroup]="formLogin" (ngSubmit)="Login()">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input formControlName="usuario" type="text" class="login__input" placeholder="User name / Email">
+					<input formControlName="usuario" type="text" class="login__input" placeholder="Usuario">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input formControlName="clave" type="password" class="login__input" placeholder="Password">
+					<input formControlName="clave" type="password" class="login__input" placeholder="Contraseña">
 				</div>
 				<button class="button login__submit" type="submit" [disabled]="!formLogin.valid" >
 					<span class="button__text">Ingresar</span>
@@ -30,7 +30,7 @@
 				</button>				
 			</form>
 			<div class="social-login">
-				<h3>Comite Electoral Universitario</h3>
+				<h3>Comité Electoral Universitario</h3>
 				<div class="social-icons">
 					<a href="#" class="social-login__icon fab fa-instagram"></a>
 					<a href="#" class="social-login__icon fab fa-facebook"></a>

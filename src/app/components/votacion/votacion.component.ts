@@ -34,7 +34,7 @@ ngOnInit(){
 }
 
 seleccionarPartido(idPartido: number, nombre_partido: any, id_candidato: any) {
-  console.log(idPartido)
+  console.log(idPartido, id_candidato)
   for (let partido of this.partidos_politicos) {
     this.partidosEstado[partido.id_partido_politico] = false;
   }
@@ -49,7 +49,7 @@ seleccionarPartido(idPartido: number, nombre_partido: any, id_candidato: any) {
     confirmButtonText: "VOTAR"
   }).then((result) => {
     if (result.isConfirmed) {
-      this.destinoSufragioSrv.emitirVoto(this.duiVotante, this.duiVotante, id_candidato, this.token)
+      this.destinoSufragioSrv.emitirVoto(this.duiVotante, this.duiVotante, idPartido, this.token)
         .subscribe((res: any) => {
           if(res){
             Swal.fire({
@@ -69,7 +69,11 @@ seleccionarPartido(idPartido: number, nombre_partido: any, id_candidato: any) {
             icon: "error",
             title: "Oops...",
             text: error // Muestra el mensaje de error
-          });
+          })
+          localStorage.removeItem("miDui")
+          setTimeout(() => {
+            this.router.navigate(['/leer-qr']);
+          }, 5500);
           return
         }
       )

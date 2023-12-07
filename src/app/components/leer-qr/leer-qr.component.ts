@@ -81,7 +81,10 @@ export class LeerQrComponent implements OnInit, AfterViewInit {
             icon: "error",
             title: "Oops...",
             text: error // Muestra el mensaje de error
-          });
+          })
+          setTimeout(() => {
+            window.location.reload()
+          }, 2000);
           return
         }
       );
